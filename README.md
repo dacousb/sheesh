@@ -15,6 +15,8 @@ Looking to get involved in the project or just know what do sheesh need to impro
 - Resolve bugs, move the code to a cleaner format.
 - Modify some code expressions, introducing clearer and more direct snippets.
 - Comment and explain some parts of the code to make them clearer.
+- I have found a bug when you press Control+C while inside a different process than the shell (it closes the forked process, but also the shell). I am investigating some solutions, which may be to change the behavior and handle the Control+C with an interesting C function.
+- Eliminate calls to *stty* via *system*, and use *termios.h* instead.
 
 More in the long term, it would be nice to add:
 - Support for simple (sheesh-specific, as there are for Bash) scripts.
