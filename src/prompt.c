@@ -11,7 +11,14 @@ int prompt_mode = 0;
 const char *hme;
 
 static char cwd[PATH_MAX];
+
+#ifndef HOST_NAME_MAX
+/* HOST_NAME_MAX not available on some platforms */
+static char hst[_POSIX_HOST_NAME_MAX + 1 /* \0 */];
+#else
 static char hst[HOST_NAME_MAX + 1 /* \0 */];
+#endif
+
 static const char *usr;
 
 void prompt(void)
